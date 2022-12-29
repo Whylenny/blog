@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>NewCryptoGame</br>
+        <button class="letter" onclick="newGame()">New Game </button> <button class="letter" onClick="hint()">Hint</button><span id="hinter"></span><button class="letter" onClick="giveUp()">Give Up</button><br>
+        <h1 id="done">Good job!</br></h1>
+        <div>Key<br><span id="key"></span><br><span id="key1"></span></div>
+        <input id="from" class="letter" type="text" inputmode="alpha" pattern="A-Z" size="1" maxlength="1" onkeyup=adv()>
+        converts to
+        <input id="to" class="letter" type="text" inputmode="alpha" pattern="A-Z" size="1" maxlength="1" onkeyup=decode()></h2>
+        
+        <div id="parent"></div>
+        
+         <script src="script.js"></script>
+
+        
+</body>
+</html>
