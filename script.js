@@ -336,7 +336,17 @@ function getQuote() {
   } // end if null
 } // end getQuote
 
-function getQuotes() {
+const getQuotes = async () => {
+  quotes = [];
+  const requestURL = "https://type.fit/api/quotes";
+  await fetch(requestURL).then((response) => {
+    let data = JSON.parse(response);
+    console.log(data);
+    quotes = data;
+  });
+};
+
+function xgetQuotes() {
   if (debug) {
     console.log("getquotes");
   }
