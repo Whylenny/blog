@@ -336,21 +336,16 @@ function getQuote() {
   } // end if null
 } // end getQuote
 
-function getQuotes() {
-  if (debug) {
-    console.log("getquotes");
-  }
+const getQuotes = async () => {
   const requestURL = "https://type.fit/api/quotes";
-  fetch(requestURL)
-    .then((response) => response.text())
-    .then((text) => buildQuotes(text));
-  function buildQuotes(quoteString) {
+  const response = await fetch(requestURL);
+  const banana = await response.text();
+
+  const buildQuotes = (quoteString) => {
     quotes = JSON.parse(quoteString);
-  } // end buildQuotes
-  if (debug) {
-    console.log("end getquotes");
-  }
-} // end getquotes
+  }; // end buildQuotes
+  buildQuotes(banana);
+}; // end getquotes
 
 document.getElementById("done").style.display = "none";
 newGame();
