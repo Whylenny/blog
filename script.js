@@ -337,30 +337,15 @@ function getQuote() {
 } // end getQuote
 
 const getQuotes = async () => {
-  quotes = [];
   const requestURL = "https://type.fit/api/quotes";
-  await fetch(requestURL).then((response) => {
-    let data = JSON.parse(response);
-    console.log(data);
-    quotes = data;
-  });
-};
+  const response = await fetch(requestURL);
+  const banana = await response.text();
 
-function xgetQuotes() {
-  if (debug) {
-    console.log("getquotes");
-  }
-  const requestURL = "https://type.fit/api/quotes";
-  fetch(requestURL)
-    .then((response) => response.text())
-    .then((text) => buildQuotes(text));
-  function buildQuotes(quoteString) {
+  const buildQuotes = (quoteString) => {
     quotes = JSON.parse(quoteString);
-  } // end buildQuotes
-  if (debug) {
-    console.log("end getquotes");
-  }
-} // end getquotes
+  }; // end buildQuotes
+  buildQuotes(banana);
+}; // end getquotes
 
 document.getElementById("done").style.display = "none";
 newGame();
